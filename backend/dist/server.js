@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/workouts', workouts_1.default); //1st argument makes the routes accessible through the
 //connect to database
+//console.log(process.env.MONGO_URI)
 mongoose_1.default.connect(process.env.MONGO_URI)
     .then(() => {
     //listen for request, which we just want to do after connecting to the DB
