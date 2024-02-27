@@ -67,7 +67,6 @@ export const updateWorkout = async (req: Request, res: Response) => {
         return res.status(404).json({error: 'There is no workout with this id'})
     }
 
-    console.log(req.body)
     const workout = await Workout.findOneAndUpdate({_id: id},{
         ...req.body //the ... works for altering all non null properties
     });

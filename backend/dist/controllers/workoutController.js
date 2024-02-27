@@ -67,7 +67,6 @@ const updateWorkout = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     if (!mongoose_1.default.Types.ObjectId.isValid(id)) {
         return res.status(404).json({ error: 'There is no workout with this id' });
     }
-    console.log(req.body);
     const workout = yield workoutModel_1.default.findOneAndUpdate({ _id: id }, Object.assign({}, req.body //the ... works for altering all non null properties
     ));
     if (!workout) {
