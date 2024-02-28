@@ -41,7 +41,7 @@ function WorkoutForm(){
             <h3>Add a new Workout</h3>
 
             <label>Execise Title:</label>
-            <input 
+            <input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
@@ -62,6 +62,7 @@ function WorkoutForm(){
             />
 
             <button>Add Workout</button>
+            {error && <div className="error">{error}</div>}
         </form>
     )
 }

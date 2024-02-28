@@ -31,6 +31,8 @@ function Home(){
             {workouts && workouts.map((workout) => (
                 <WorkoutDetails key={workout._id} workout={workout}/>
                 ))}
+            </div>
+            <div className='workout'>
                 <WorkoutForm />
             </div>
         </div>   
