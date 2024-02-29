@@ -17,7 +17,7 @@ const workoutModel_1 = __importDefault(require("../models/workoutModel"));
 const mongoose_1 = __importDefault(require("mongoose"));
 // get all workouts
 const getAllworkouts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const workouts = yield workoutModel_1.default.find({}).sort({ 'title': -1 }); //need to be replaced for createdAt when I fix the timestamp thing at model
+    const workouts = yield workoutModel_1.default.find({}).sort({ 'createdAt': -1 }); //need to be replaced for createdAt when I fix the timestamp thing at model
     res.status(200).json(workouts);
 });
 exports.getAllworkouts = getAllworkouts;

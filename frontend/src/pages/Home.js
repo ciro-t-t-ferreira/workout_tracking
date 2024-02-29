@@ -1,4 +1,5 @@
-import { useEffect, useState} from 'react'
+import { useEffect } from 'react'
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
 
 //components
 import WorkoutDetails from '../components/WorkoutDetails'
@@ -6,23 +7,23 @@ import WorkoutForm from '../components/WorkoutForm';
 
 function Home(){
 
-    const [workouts, setWorkouts] = useState(null) 
+    const { workouts, dispatch } = useWorkoutsContext()
 
     useEffect(() => {
-        const fetchWorkout = async () => {
+        const fetchWorkouts = async () => {
             const response = await fetch('/api/workouts') //the localhost part is put as a
                 // proxy in ../package.json
             const json = await response.json()
 
             if (response.ok){
-                setWorkouts(json)
+                dispatch( {type: "SET_WORKOUTS" , payload: json})
             }
         }
 
-        fetchWorkout();
+        fetchWorkouts();
 
 
-    }, []); //the idea of the second empty argument is to run the function only once
+    }, [dispatch]); 
     
 
     return (
@@ -37,6 +38,6 @@ function Home(){
             </div>
         </div>   
         )
-    }
+}
     
 export default Home

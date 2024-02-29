@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 // get all workouts
 export const getAllworkouts = async (req: Request, res: Response) => {
-    const workouts = await Workout.find({}).sort({'title': -1}); //need to be replaced for createdAt when I fix the timestamp thing at model
+    const workouts = await Workout.find({}).sort({'createdAt': -1}); //need to be replaced for createdAt when I fix the timestamp thing at model
 
     res.status(200).json(workouts);
 }
