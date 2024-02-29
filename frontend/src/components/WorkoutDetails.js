@@ -9,7 +9,7 @@ function WorkoutDetails({ workout }){
             method: 'DELETE'
         })
         const json = await response.json()
-        console.log(response.ok)
+        
         if (response.ok){
             dispatch({ type: "DELETE_WORKOUT", payload: json})
         }

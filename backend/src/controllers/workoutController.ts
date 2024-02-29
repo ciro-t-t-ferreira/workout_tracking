@@ -30,6 +30,21 @@ export const getWorkout = async (req: Request, res: Response) => {
 // create new workout
 export const createWorkout = async (req: Request, res: Response) => {
     const {title, reps, load} = req.body;
+
+    let emptyFields: String[] = [];
+
+    if(!title){
+        emptyFields.push('title');
+    }
+    if(!load){
+        emptyFields.push('load');
+    }
+    if(!reps){
+        emptyFields.push('reps');
+    }
+    if(emptyFields.length !== 0){
+        return res.status(400).json({error: 'Please fill in all fields', emptyFields})
+    }
     
     console.log('sup')
     //add the workout doc to db
